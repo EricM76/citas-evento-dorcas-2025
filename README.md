@@ -1,20 +1,43 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Citas Evento Dorcas 2025
 
-# Run and deploy your AI Studio app
+Carrusel de imágenes a pantalla completa para el evento Dorcas 2025.
 
-This contains everything you need to run your app locally.
+## Ejecutar Localmente
 
-View your app in AI Studio: https://ai.studio/apps/drive/1juAcF4y68CAGwzvFbjufpwpdhUXAO6vl
+**Prerrequisitos:** Node.js y Yarn
 
-## Run Locally
+1. Instalar dependencias:
+   ```bash
+   yarn install
+   ```
 
-**Prerequisites:**  Node.js
+2. Ejecutar en modo desarrollo:
+   ```bash
+   yarn dev
+   ```
 
+3. Construir para producción:
+   ```bash
+   yarn build
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Deploy en GitHub Pages
+
+El proyecto está configurado para hacer deploy automático en GitHub Pages.
+
+### Pasos para activar GitHub Pages:
+
+1. **Habilitar GitHub Pages en el repositorio:**
+   - Ve a Settings → Pages en tu repositorio de GitHub
+   - En "Source", selecciona "GitHub Actions"
+
+2. **El workflow se ejecutará automáticamente:**
+   - Cada vez que hagas push a la rama `main` o `master`
+   - El workflow construirá y desplegará automáticamente la aplicación
+
+3. **Tu sitio estará disponible en:**
+   - `https://[tu-usuario].github.io/[nombre-del-repositorio]/`
+
+### Nota importante:
+
+Si el nombre de tu repositorio no es `citas-evento-dorcas-2025`, necesitarás actualizar la variable `VITE_BASE_PATH` en el archivo `.github/workflows/deploy.yml` con el nombre correcto de tu repositorio.

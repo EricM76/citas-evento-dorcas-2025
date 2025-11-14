@@ -2,17 +2,17 @@ import React from 'react';
 import Carousel from './components/Carousel';
 
 const images = [
-  'https://i.ibb.co/p1v0mH9/1.jpg',
-  'https://i.ibb.co/8Yj05Wp/2.jpg',
-  'https://i.ibb.co/z5pB0bV/3.jpg',
-  'https://i.ibb.co/bF4N3Zk/4.jpg',
-  'https://i.ibb.co/SswJp2P/5.jpg',
-  'https://i.ibb.co/3cZf5fL/6.jpg',
-  'https://i.ibb.co/8XY55Yq/7.jpg',
-  'https://i.ibb.co/mHqjqnW/8.jpg',
-  'https://i.ibb.co/JqbjxHF/9.jpg',
-  'https://i.ibb.co/wJCMz89/10.jpg',
-  'https://i.ibb.co/Dtd5zWf/11.jpg'
+  '/images/0.jpg',
+  '/images/1.jpg',
+  '/images/2.jpg',
+  '/images/3a.jpg',
+  '/images/3b.jpg',
+  '/images/4.jpg',
+  '/images/5.jpg',
+  '/images/6a.jpg',
+  '/images/6b.jpg',
+  '/images/7.jpg',
+  '/images/8.jpg'
 ];
 
 function App() {

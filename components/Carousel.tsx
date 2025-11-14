@@ -29,7 +29,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
             key={index}
             src={src}
             alt={`Carousel image ${index + 1}`}
-            className="h-full w-full flex-shrink-0 bg-gray-800 object-cover"
+            className="h-full w-full flex-shrink-0 bg-gray-800 object-contain object-center"
             loading={index === 0 ? 'eager' : 'lazy'}
           />
         ))}
