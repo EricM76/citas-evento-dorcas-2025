@@ -1,0 +1,5 @@
+{
+  "name": "Fullscreen Image Carousel",
+  "description": "A responsive, fullscreen image carousel that displays one image at a time with subtle navigation and a prominent image counter, designed for a seamless mobile experience.",
+  "requestFramePermissions": []
+}
