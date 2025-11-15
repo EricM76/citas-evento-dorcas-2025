@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from './Icons';
 
 interface CarouselProps {
@@ -8,6 +8,31 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showImageName, setShowImageName] = useState(true);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Ocultar el nombre después de 3 segundos cuando cambia la imagen
+  useEffect(() => {
+    // Mostrar el nombre cuando cambia la imagen
+    setShowImageName(true);
+    
+    // Limpiar el timeout anterior si existe
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    
+    // Ocultar después de 3 segundos
+    timeoutRef.current = setTimeout(() => {
+      setShowImageName(false);
+    }, 3000);
+    
+    // Limpiar el timeout al desmontar o cuando cambia el índice
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [currentIndex]);
 
   const goToPrevious = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
@@ -66,8 +91,12 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
       </button>
 
       {/* Image Name Display */}
-      {getImageName(images[currentIndex]) && (
-        <div className="absolute bottom-[36px] left-1/2 z-10 -translate-x-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg">
+      {(() => {
+        const imageName = getImageName(images[currentIndex]);
+        // No mostrar si está vacío
+        return imageName && showImageName;
+      })() && (
+        <div className="absolute bottom-[36px] left-1/2 z-10 -translate-x-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg transition-opacity duration-300">
           <span className="text-gray-900 font-bold text-lg">
             {getImageName(images[currentIndex])}
           </span>
