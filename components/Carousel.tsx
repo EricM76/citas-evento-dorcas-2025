@@ -67,7 +67,7 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
 
       {/* Image Name Display */}
       {getImageName(images[currentIndex]) && (
-        <div className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg">
+        <div className="absolute bottom-[36px] left-1/2 z-10 -translate-x-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg">
           <span className="text-gray-900 font-bold text-lg">
             {getImageName(images[currentIndex])}
           </span>
