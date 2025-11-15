@@ -31,6 +31,11 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
             alt={`Carousel image ${index + 1}`}
             className="h-full w-full flex-shrink-0 bg-gray-800 object-contain object-center"
             loading={index === 0 ? 'eager' : 'lazy'}
+            onError={(e) => {
+              console.error(`Error loading image ${index + 1}:`, src);
+              console.error('Current location:', window.location.href);
+              console.error('BASE_URL:', import.meta.env.BASE_URL);
+            }}
           />
         ))}
       </div>

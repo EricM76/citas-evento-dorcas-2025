@@ -1,17 +1,20 @@
 import React from 'react';
 import Carousel from './components/Carousel';
 
+// Obtener el base path - Vite reemplaza esto en tiempo de build
+const BASE_URL = import.meta.env.BASE_URL || '/';
+
 // Función para construir rutas correctas con el base path
-// En Vite, los archivos de public se copian a la raíz, pero necesitamos el base path
 const getImagePath = (imageName: string): string => {
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  // BASE_URL siempre termina con /, así que solo necesitamos concatenar
+  // Asegurar que BASE_URL termine con /
+  const base = BASE_URL.endsWith('/') ? BASE_URL : `${BASE_URL}/`;
+  
   // Asegurar que imageName no empiece con /
-  const cleanImage = imageName.startsWith('/') ? imageName.slice(1) : imageName;
-  const fullPath = `${baseUrl}${cleanImage}`;
-  // Debug: descomentar para ver las rutas en consola
-  // console.log('Image path:', fullPath, 'BASE_URL:', baseUrl);
-  return fullPath;
+  const image = imageName.startsWith('/') ? imageName.slice(1) : imageName;
+  
+  // Construir la ruta: base + image
+  // Ejemplo: '/citas-evento-dorcas-2025/' + 'images/0.jpg' = '/citas-evento-dorcas-2025/images/0.jpg'
+  return `${base}${image}`;
 };
 
 const images = [
@@ -28,11 +31,10 @@ const images = [
   getImagePath('images/8.jpg')
 ];
 
-// Debug: verificar rutas en desarrollo
-if (import.meta.env.DEV) {
-  console.log('BASE_URL:', import.meta.env.BASE_URL);
-  console.log('First image path:', images[0]);
-}
+// Debug: verificar rutas en consola
+console.log('BASE_URL:', BASE_URL);
+console.log('First image path:', images[0]);
+console.log('Sample paths:', images.slice(0, 3));
 
 function App() {
   return (
