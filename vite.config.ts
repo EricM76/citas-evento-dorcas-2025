@@ -6,7 +6,8 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     // Para GitHub Pages, usar el nombre del repositorio como base path
     // Se puede configurar con VITE_BASE_PATH o usar el nombre del repo
-    const base = process.env.VITE_BASE_PATH || '/';
+    // Usar process.env directamente ya que loadEnv puede no cargar todas las variables
+    const base = process.env.VITE_BASE_PATH || env.VITE_BASE_PATH || '/';
     
     return {
       base,
