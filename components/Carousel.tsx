@@ -17,6 +17,16 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
     setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
   }, [images.length]);
 
+  // Función para extraer el nombre de la imagen sin extensión
+  const getImageName = (imagePath: string): string => {
+    // Extraer el nombre del archivo de la ruta
+    const fileName = imagePath.split('/').pop() || '';
+    // Remover la extensión
+    const name = fileName.replace(/\.[^/.]+$/, '');
+    // No mostrar "0"
+    return name === '0' ? '' : name;
+  };
+
   return (
     <div className="relative h-screen w-full select-none overflow-hidden">
       {/* Image Track */}
@@ -55,10 +65,14 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         <ChevronRightIcon className="h-6 w-6 md:h-8 md:w-8" />
       </button>
 
-      {/* Image Counter */}
-      <div className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 rounded-full bg-black/50 px-4 py-2 text-lg font-bold text-white shadow-lg backdrop-blur-sm">
-        {currentIndex + 1} / {images.length}
-      </div>
+      {/* Image Name Display */}
+      {getImageName(images[currentIndex]) && (
+        <div className="absolute bottom-4 left-1/2 z-10 -translate-x-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-white shadow-lg">
+          <span className="text-gray-900 font-bold text-lg">
+            {getImageName(images[currentIndex])}
+          </span>
+        </div>
+      )}
     </div>
   );
 };
