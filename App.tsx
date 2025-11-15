@@ -1,18 +1,20 @@
 import React from 'react';
 import Carousel from './components/Carousel';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const images = [
-  '/images/0.jpg',
-  '/images/1.jpg',
-  '/images/2.jpg',
-  '/images/3a.jpg',
-  '/images/3b.jpg',
-  '/images/4.jpg',
-  '/images/5.jpg',
-  '/images/6a.jpg',
-  '/images/6b.jpg',
-  '/images/7.jpg',
-  '/images/8.jpg'
+  `${baseUrl}images/0.jpg`,
+  `${baseUrl}images/1.jpg`,
+  `${baseUrl}images/2.jpg`,
+  `${baseUrl}images/3a.jpg`,
+  `${baseUrl}images/3b.jpg`,
+  `${baseUrl}images/4.jpg`,
+  `${baseUrl}images/5.jpg`,
+  `${baseUrl}images/6a.jpg`,
+  `${baseUrl}images/6b.jpg`,
+  `${baseUrl}images/7.jpg`,
+  `${baseUrl}images/8.jpg`
 ];
 
 function App() {
