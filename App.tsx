@@ -66,13 +66,6 @@ const images = [
   getImagePath('images/8.jpg')
 ];
 
-// Debug: verificar rutas en consola
-console.log('BASE_URL (from import.meta.env):', import.meta.env.BASE_URL);
-console.log('BASE_URL (detected):', BASE_URL);
-console.log('Current location:', typeof window !== 'undefined' ? window.location.href : 'N/A');
-console.log('First image path:', images[0]);
-console.log('Sample paths:', images.slice(0, 3));
-
 function App() {
   return (
     <main className="h-screen w-screen bg-black">
